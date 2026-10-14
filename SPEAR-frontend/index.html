@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#faf9ff" />
+    <title>S.P.E.A.R — Email Inspection Studio</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#home"
+          ><span class="brand-mark">S<span>✳</span></span
+          ><span>S.P.E.A.R<small>EMAIL INSPECTION STUDIO</small></span></a
+        >
+        <div class="nav-caption">WORKSPACE</div>
+        <nav>
+          <a class="nav-link active" data-page="home" href="#home"
+            ><span>⌂</span>Overview</a
+          >
+          <a class="nav-link" data-page="analyze" href="#analyze"
+            ><span>⌕</span>Analyze email</a
+          >
+          <a class="nav-link" data-page="history" href="#history"
+            ><span>◷</span>History</a
+          >
+          <a class="nav-link" data-page="learn" href="#learn"
+            ><span>✳</span>Learn</a
+          >
+          <a class="nav-link" data-page="about" href="#about"
+            ><span>ⓘ</span>About S.P.E.A.R</a
+          >
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="secure-badge">
+            <span>✳</span>
+            <div>
+              <b>Private local demo</b
+              ><small>Your email stays on this PC.</small>
+            </div>
+          </div>
+          <div class="profile">
+            <div class="profile-avatar">SP</div>
+            <span><b>S.P.E.A.R</b><small>Project workspace</small></span>
+          </div>
+        </div>
+      </aside>
+      <main class="main-area">
+        <header class="topbar">
+          <div class="breadcrumb">
+            Workspace <span>/</span> <b id="crumb">Overview</b>
+          </div>
+          <div class="top-actions">
+            <span id="api-status" class="local-status"
+              ><i></i> Checking backend…</span
+            ><button
+              id="assistant-toggle"
+              class="assistant-toggle"
+              type="button"
+              aria-label="Open AI Guide"
+              aria-expanded="false"
+              title="Ask the AI Guide"
+            >
+              ✳<span>AI help</span></button
+            ><span class="top-avatar">SP</span>
+          </div>
+        </header>
+        <aside
+          id="assistant-panel"
+          class="assistant-panel"
+          aria-label="S.P.E.A.R AI Guide"
+          aria-hidden="true"
+        >
+          <div class="assistant-head">
+            <div class="assistant-avatar">✳</div>
+            <div>
+              <b>S.P.E.A.R AI Guide</b
+              ><small>Email spoofing help · Offline</small>
+            </div>
+            <button
+              id="assistant-close"
+              type="button"
+              aria-label="Close assistant"
+            >
+              ×
+            </button>
+          </div>
+          <div
+            id="assistant-messages"
+            class="assistant-messages"
+            aria-live="polite"
+          >
+            <div class="chat-message assistant-message">
+              Hi! Ask me about spoofing, SPF/DKIM/DMARC, suspicious links, or
+              your latest report. I use built-in guidance and do not verify
+              emails live.
+            </div>
+            <div class="suggested-questions">
+              <button type="button">What is email spoofing?</button
+              ><button type="button">What do SPF, DKIM and DMARC mean?</button
+              ><button type="button">Is my latest report safe?</button>
+            </div>
+          </div>
+          <form id="assistant-form" class="assistant-form">
+            <label class="sr-only" for="assistant-question"
+              >Ask about email spoofing</label
+            ><textarea
+              id="assistant-question"
+              maxlength="8000"
+              rows="2"
+              placeholder="Ask a question…"
+              required
+            ></textarea
+            ><button type="submit" aria-label="Send question">↑</button>
+          </form>
+          <div class="assistant-foot">
+            Offline educational guide · Not a live AI or security verdict
+          </div>
+        </aside>
+        <div class="page-content">
+          <section class="view active" id="page-home">
+            <section class="hero">
+              <div class="hero-copy">
+                <div class="eyebrow">
+                  <i></i> SPOOFING PROTECTION · EMAIL ANALYSIS · REVIEW
+                </div>
+                <h1>See the signals.<br /><em>Make safer choices.</em></h1>
+                <p>
+                  Upload an email file you received and inspect its sender,
+                  authentication results, links, and other warning signs in one
+                  simple workspace.
+                </p>
+                <div class="actions">
+                  <a class="button primary" href="#analyze"
+                    >Analyze an email <span>↗</span></a
+                  ><a class="button secondary" href="#learn"
+                    >Explore the guide <span>→</span></a
+                  >
+                </div>
+                <div class="hero-note">
+                  <span class="avatars">✦</span
+                  ><span>Files are processed locally on your computer.</span>
+                </div>
+              </div>
+              <div class="hero-art">
+                <div class="orbit orbit-one"></div>
+                <div class="orbit orbit-two"></div>
+                <div class="mail-card">
+                  <div class="mail-top">
+                    <span class="dot"></span><span class="dot"></span
+                    ><span class="dot"></span
+                    ><span class="mail-label">MESSAGE REVIEW</span>
+                  </div>
+                  <div class="shield">✓</div>
+                  <div class="art-title">Inspect before<br />you trust.</div>
+                  <div class="art-row">
+                    <span>Sender identity</span><b>Review</b>
+                  </div>
+                  <div class="art-row">
+                    <span>Authentication</span><b>Inspect</b>
+                  </div>
+                  <div class="art-row">
+                    <span>Links & intent</span><b>Verify</b>
+                  </div>
+                </div>
+                <div class="float-pill pill-a">✳ SPF · DKIM · DMARC</div>
+                <div class="float-pill pill-b">⌁ Local analysis</div>
+              </div>
+            </section>
+            <section class="feature-strip">
+              <div>
+                <b>01</b
+                ><span
+                  ><strong>Upload an .eml file</strong
+                  ><small>Up to 5 MB per email</small></span
+                >
+              </div>
+              <div>
+                <b>02</b
+                ><span
+                  ><strong>Review the findings</strong
+                  ><small>Headers, links, and indicators</small></span
+                >
+              </div>
+              <div>
+                <b>03</b
+                ><span
+                  ><strong>Check your history</strong
+                  ><small>Saved in local SQLite</small></span
+                >
+              </div>
+            </section>
+            <div class="dashboard-tiles">
+              <a class="feature-card" href="#analyze"
+                ><span class="card-icon">⌕</span
+                ><span class="card-arrow">↗</span>
+                <h3>Email analysis</h3>
+                <p>
+                  Upload a message and view the extracted evidence and findings.
+                </p>
+                <span class="text-link">Start analysis →</span></a
+              ><a class="feature-card" href="#history"
+                ><span class="card-icon">◷</span
+                ><span class="card-arrow">↗</span>
+                <h3>Analysis history</h3>
+                <p>Review previous uploads saved by this local backend.</p>
+                <span class="text-link">View history →</span></a
+              ><a class="feature-card" href="#learn"
+                ><span class="card-icon">✳</span
+                ><span class="card-arrow">↗</span>
+                <h3>Understand the signals</h3>
+                <p>
+                  Learn what SPF, DKIM, DMARC and warning signs can tell you.
+                </p>
+                <span class="text-link">Open guide →</span></a
+              >
+            </div>
+          </section>
+          <section class="view" id="page-analyze">
+            <div class="page-intro">
+              <div>
+                <div class="eyebrow"><i></i> S.P.E.A.R / MESSAGE ANALYSIS</div>
+                <h1>Upload an email to inspect</h1>
+                <p>
+                  Choose a raw .eml message file. The backend parses it on this
+                  computer and saves a summary in your local history.
+                </p>
+              </div>
+            </div>
+            <div class="notice">
+              <span>ⓘ</span>
+              <div>
+                <strong>What this analysis does</strong>
+                <p>
+                  Reads message headers, reported SPF/DKIM/DMARC results, links,
+                  attachment names, and common urgency phrases. It does not
+                  execute attachments or connect to external services.
+                </p>
+              </div>
+            </div>
+            <form id="upload-form" class="upload-panel">
+              <label class="drop-zone" id="drop-zone" for="email-file"
+                ><span class="upload-icon">↑</span
+                ><strong>Drop your .eml file here</strong
+                ><small>or browse files · maximum 5 MB</small
+                ><input
+                  id="email-file"
+                  name="file"
+                  type="file"
+                  accept=".eml,message/rfc822"
+                  required
+              /></label>
+              <div id="selected-file" class="selected-file">
+                No file selected
+              </div>
+              <button class="button primary" id="submit-button" type="submit">
+                Analyze email <span>→</span>
+              </button>
+              <div id="upload-error" class="error-text" role="alert"></div>
+            </form>
+            <section
+              id="result-section"
+              class="result-section hidden"
+              aria-live="polite"
+            ></section>
+          </section>
+          <section class="view" id="page-history">
+            <div class="page-intro">
+              <div>
+                <div class="eyebrow"><i></i> S.P.E.A.R / LOCAL HISTORY</div>
+                <h1>Your analysis history</h1>
+                <p>
+                  Up to the latest 100 reviews saved by the backend on this
+                  computer.
+                </p>
+              </div>
+              <button class="button secondary" id="clear-history">
+                Clear history
+              </button>
+            </div>
+            <div id="history-list" class="history-list">
+              <div class="empty-state">Loading history…</div>
+            </div>
+          </section>
+          <section class="view" id="page-learn">
+            <div class="page-intro">
+              <div>
+                <div class="eyebrow"><i></i> S.P.E.A.R / AWARENESS</div>
+                <h1>Understand the email signals</h1>
+                <p>
+                  Indicators help you decide what to verify. They are clues, not
+                  proof on their own.
+                </p>
+              </div>
+            </div>
+            <div class="learn-grid">
+              <article class="learn-card">
+                <span class="step">01</span>
+                <h3>SPF</h3>
+                <p>
+                  Sender Policy Framework reports whether the sending server is
+                  authorized by a domain. This project only reads a result
+                  already present in the email header.
+                </p>
+              </article>
+              <article class="learn-card">
+                <span class="step">02</span>
+                <h3>DKIM</h3>
+                <p>
+                  DomainKeys Identified Mail uses a cryptographic signature.
+                  This project does not verify the signature; it displays the
+                  reported Authentication-Results value.
+                </p>
+              </article>
+              <article class="learn-card">
+                <span class="step">03</span>
+                <h3>DMARC</h3>
+                <p>
+                  DMARC uses SPF/DKIM alignment and a domain policy. A result
+                  may be missing from a message and needs context.
+                </p>
+              </article>
+              <article class="learn-card">
+                <span class="step">04</span>
+                <h3>Links and urgency</h3>
+                <p>
+                  Unexpected destinations, requests for credentials, and time
+                  pressure deserve extra care. Open important services through a
+                  known address.
+                </p>
+              </article>
+            </div>
+            <div class="info-banner">
+              <b>If an email seems suspicious</b
+              ><span
+                >Do not open unexpected attachments or reply with sensitive
+                information. Verify unusual requests through a known,
+                independent channel.</span
+              >
+            </div>
+          </section>
+          <section class="view" id="page-about">
+            <div class="page-intro">
+              <div>
+                <div class="eyebrow"><i></i> PROJECT OVERVIEW</div>
+                <h1>S.P.E.A.R</h1>
+                <p>
+                  Spoofing Protection, Email Analysis & Review — an educational
+                  project demo for inspecting email evidence.
+                </p>
+              </div>
+            </div>
+            <div class="split-panel">
+              <div class="soft-panel">
+                <span class="card-icon">⌕</span>
+                <h2>Local by design</h2>
+                <p>
+                  Uploaded email files
+                  are parsed in memory; the original file is not saved. A
+                  derived analysis report is saved in a local SQLite database.
+                </p>
+              </div>
+              <div class="soft-panel">
+                <span class="card-icon pink-icon">⚑</span>
+                <h2>Know the limits</h2>
+                <p>
+                  This is a heuristic review, not a malware scanner or a
+                  mail-provider verdict. It does not perform DNS lookups, verify
+                  DKIM signatures, resolve links, or establish that an email is
+                  safe.
+                </p>
+              </div>
+            </div>
+            <div class="info-banner">
+              <b>Run the backend first</b
+              ><span
+                >See the README included in both ZIP files for Windows start-up
+                steps.</span
+              >
+            </div>
+          </section>
+          <footer>
+            <span
+              >✳ S.P.E.A.R
+              <small>Educational email inspection demo</small></span
+            ><span>Inspect thoughtfully · Verify independently</span>
+          </footer>
+        </div>
+      </main>
+    </div>
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
